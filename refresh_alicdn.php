@@ -3,7 +3,7 @@
 Plugin Name: Refresh AliCDN
 Plugin URI: https://jackyu.cn/projects/refresh_alicdn
 Description: A tweak can help you refreshing your aliyun cdn cache without logining to the aliyun console.
-Version: 1.1
+Version: 1.2
 Author: Jacky
 Author URI: https://jackyu.cn/
 License: GPL2
@@ -25,6 +25,7 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
 register_activation_hook( __FILE__, 'generate_password');
 
 function generate_password() {
@@ -43,7 +44,7 @@ function refresh_alicdn_remove() {
 
 if ( is_admin() ) {
 	add_action( 'admin_bar_menu', 'refresh_button', 90 );
-	add_action('admin_footer', 'add_toast_style');
+	add_action('admin_footer', 'add_toastr_style');
 	add_action('admin_footer', 'show_toastr' );
 	add_action('admin_menu', 'aliyun_cdn_menu');
 }
@@ -60,7 +61,7 @@ function refresh_button( $meta = TRUE ) {
   }
 }
 
-function add_toast_style() {
+function add_toastr_style() {
   if ( is_super_admin() || is_admin_bar_showing() ) {
     wp_register_style( 'toastrCSS', '//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css' );
     wp_register_script( 'toastrJS', '//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js' );
@@ -75,17 +76,17 @@ function show_toastr() {
   echo "<script>function refresh() {
     $.ajax({
 			type:\"post\",
-      url: \"".plugins_url('do.php', __FILE__)."\",  // 执行php
-			data: \"pw=".get_option('cdn_post_pw')."\",
-      success: function(data){
-        if( data.result==1 ){ // 根据返回的数据做不同处理
+      url: \"".plugins_url('do.php', __FILE__)."\",
+			data: \"key=".get_option('cdn_post_pw')."\",
+      success: function(data) {
+        if( data.result==1 ) {
           toastr.success(data.message);
         }
-        if( data.result==2 ){
+        if( data.result==2 ) {
           toastr.error(data.message);
         }
 				if( data.result==3 ) {
-					toastr.error(data.message);
+					toastr.warning(data.message);
 				}
       }
     });}</script>";
@@ -105,6 +106,16 @@ function register_refresh_alicdn_settings() {
 }
 function refresh_alicdn_settings_page() {
 	$type = is_numeric(get_option('cdn_refresh_type')) ? esc_attr(get_option('cdn_refresh_type')) : 1;
+  /* 载入 Aliyun CDN SDK */
+  include_once 'aliyun-php-sdk-core/Config.php';
+  include_once 'aliyun-php-sdk-cdn/Request/v20141111/DescribeRefreshQuotaRequest.php';
+
+  //getProfile的三个参数分别是：region, Access Key ID, Access Key Secret
+  $iClientProfile = DefaultProfile::getProfile("cn-hangzhou", get_option('cdn_access_key_id'), get_option('cdn_access_key_secret'));
+  $client = new DefaultAcsClient($iClientProfile);
+  $request = new \Cdn\Request\V20141111\DescribeRefreshQuotaRequest();
+  $request->setMethod("GET");
+  $response = $client->getAcsResponse($request);
 ?>
 <div class="wrap" style="margin: 10px">
   <h1>阿里云 CDN 刷新设置</h1>
@@ -128,14 +139,14 @@ function refresh_alicdn_settings_page() {
       <ol><input type="radio" name="cdn_refresh_type" value="2" <?php echo checked( 2, $type, false); ?>/>仅刷新自定义 URL</ol>
 			<ol><input type="radio" name="cdn_refresh_type" value="3" <?php echo checked( 3, $type, false); ?>/>刷新 style.css 和自定义 URL</ol>
 			<ol><input type="radio" name="cdn_refresh_type" value="4" <?php echo checked( 4, $type, false); ?>/>刷新主题内所有文件和自定义 URL</ol>
-			<p>默认不刷新子主题的 style.css，子主题刷新功能敬请期待。一般情况下<font color="#F40">不建议选择</font>刷新主题内所有文件和自定义 URL，仅建议在特殊情况下，如更新主题后使用.</p>
+			<p>仅支持当前启用主题内的文件，如有子主题且需要刷新父主题内的文件，请将 URL 添加到刷新自定义 URL 中。一般情况下<font color="#F40">不建议选择</font>刷新主题内所有文件和自定义 URL，仅建议在特殊情况下，如更新主题后使用。</p>
     </fieldset>
 		<fieldset>
       <h2>刷新自定义 URL</h2>
       <textarea type="text" cols="60" rows="10" name="cdn_refresh_urls" /><?php echo get_option('cdn_refresh_urls'); ?></textarea>
-      <p>多个URL请用回车分隔，每个URL应当以 http:// 或 https:// 开头，如果是域名目录 URL，末尾请加上<font color="#F40"> / </font>一次提交不能超过100个URL</p>
-			<p>注意：每天最多可以刷新(含预热)2000个文件(URL)和100个目录。刷新任务生效时间大约为5分钟。</p>
-      <p>本项目为开源项目，开源地址：https://github.com/0xJacky/Refresh_AliCDN</p>
+      <p>多个URL请用回车分隔，每个URL应当以 http:// 或 https:// 开头，一次提交不能超过100个URL</p>
+			<p>注意：您的账户每天最多可以刷新(含预热)<?php echo $response->UrlQuota; ?>个文件(URL)和<?php echo $response->DirQuota; ?>个目录。刷新任务生效时间大约为5分钟。</p>
+      <p>今日还可以刷新目录 <?php echo $response->DirRemain;?>次，刷新URL <?php echo $response->UrlRemain;?> 个。</p>
     </fieldset>
     <hr>
     <?php submit_button(); ?>

@@ -17,52 +17,50 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-$regionIds = array("cn-hangzhou","cn-beijing","cn-qingdao","cn-hongkong","cn-shanghai","us-west-1","cn-shenzhen","ap-southeast-1");
-$productDomains =array(
-	new ProductDomain("Mts", "mts.cn-hangzhou.aliyuncs.com"),
-	new ProductDomain("ROS", "ros.aliyuncs.com"),
-	new ProductDomain("Dm", "dm.aliyuncs.com"),
-	new ProductDomain("Bss", "bss.aliyuncs.com"),
-	new ProductDomain("Ecs", "ecs.aliyuncs.com"),
-	new ProductDomain("Oms", "oms.aliyuncs.com"),
-	new ProductDomain("Rds", "rds.aliyuncs.com"),
-	new ProductDomain("BatchCompute", "batchCompute.aliyuncs.com"),
-	new ProductDomain("Slb", "slb.aliyuncs.com"),
-	new ProductDomain("Oss", "oss-cn-hangzhou.aliyuncs.com"),
-	new ProductDomain("OssAdmin", "oss-admin.aliyuncs.com"),
-	new ProductDomain("Sts", "sts.aliyuncs.com"),
-	new ProductDomain("Push", "cloudpush.aliyuncs.com"),
-	new ProductDomain("Yundun", "yundun-cn-hangzhou.aliyuncs.com"),
-	new ProductDomain("Risk", "risk-cn-hangzhou.aliyuncs.com"),
-	new ProductDomain("Drds", "drds.aliyuncs.com"),
-	new ProductDomain("M-kvstore", "m-kvstore.aliyuncs.com"),
-	new ProductDomain("Ram", "ram.aliyuncs.com"),
-	new ProductDomain("Cms", "metrics.aliyuncs.com"),
-	new ProductDomain("Crm", "crm-cn-hangzhou.aliyuncs.com"),
-	new ProductDomain("Ocs", "pop-ocs.aliyuncs.com"),
-	new ProductDomain("Ots", "ots-pop.aliyuncs.com"),
-	new ProductDomain("Dqs", "dqs.aliyuncs.com"),
-	new ProductDomain("Location", "location.aliyuncs.com"),
-	new ProductDomain("Ubsms", "ubsms.aliyuncs.com"),
-	new ProductDomain("Drc", "drc.aliyuncs.com"),
-	new ProductDomain("Ons", "ons.aliyuncs.com"),
-	new ProductDomain("Aas", "aas.aliyuncs.com"),
-	new ProductDomain("Ace", "ace.cn-hangzhou.aliyuncs.com"),
-	new ProductDomain("Dts", "dts.aliyuncs.com"),
-	new ProductDomain("R-kvstore", "r-kvstore-cn-hangzhou.aliyuncs.com"),
-	new ProductDomain("PTS", "pts.aliyuncs.com"),
-	new ProductDomain("Alert", "alert.aliyuncs.com"),
-	new ProductDomain("Push", "cloudpush.aliyuncs.com"),
-	new ProductDomain("Emr", "emr.aliyuncs.com"),
-	new ProductDomain("Cdn", "cdn.aliyuncs.com"),
-	new ProductDomain("COS", "cos.aliyuncs.com"),
-	new ProductDomain("CF", "cf.aliyuncs.com"),
-	new ProductDomain("Ess", "ess.aliyuncs.com"),
-	new ProductDomain("Ubsms-inner", "ubsms-inner.aliyuncs.com"),
-    new ProductDomain("Green", "green.aliyuncs.com"),
-    new ProductDomain("Iot", "iot.aliyuncs.com")
+$endpoint_filename = dirname(__FILE__) . DIRECTORY_SEPARATOR . "endpoints.xml";
+$xml = simplexml_load_string(file_get_contents($endpoint_filename));
+$json = json_encode($xml);
+$json_array = json_decode($json, TRUE);
 
-	);
-$endpoint = new Endpoint("cn-hangzhou", $regionIds, $productDomains);
-$endpoints = array($endpoint);
+$endpoints = array();
+
+foreach ($json_array["Endpoint"] as $json_endpoint) {
+    # pre-process RegionId & Product
+    if (!array_key_exists("RegionId", $json_endpoint["RegionIds"])) {
+        $region_ids = array();
+    } else {
+        $json_region_ids = $json_endpoint['RegionIds']['RegionId'];
+        if (!is_array($json_region_ids)) {
+            $region_ids = array($json_region_ids);
+        } else {
+            $region_ids = $json_region_ids;
+        }
+    }
+
+    if (!array_key_exists("Product", $json_endpoint["Products"])) {
+        $products = array();
+
+    } else {
+        $json_products = $json_endpoint["Products"]["Product"];
+
+        if (array() === $json_products or !is_array($json_products)) {
+            $products = array();
+        } else if (array_keys($json_products) !== range(0, count($json_products) - 1)) {
+            # array is not sequential
+            $products = array($json_products);
+        } else {
+            $products = $json_products;
+        }
+    }
+
+    $product_domains = array();
+    foreach ($products as $product) {
+        $product_domain = new ProductDomain($product['ProductName'], $product['DomainName']);
+        array_push($product_domains, $product_domain);
+    }
+
+    $endpoint = new Endpoint($region_ids[0], $region_ids, $product_domains);
+    array_push($endpoints, $endpoint);
+}
+
 EndpointProvider::setEndpoints($endpoints);
