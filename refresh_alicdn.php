@@ -3,13 +3,13 @@
 Plugin Name: Refresh AliCDN
 Plugin URI: https://jackyu.cn/projects/refresh_alicdn
 Description: A tweak can help you refreshing your aliyun cdn cache without logining to the aliyun console.
-Version: 1.2
+Version: 1.3
 Author: Jacky
 Author URI: https://jackyu.cn/
 License: GPL2
 */
 
-/*  Copyright 2017  0xJacky  (email : me@jackyu.cm)
+/*  Copyright 2017 0xJacky  (email : me@jackyu.cm)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -65,7 +65,7 @@ function add_toastr_style() {
   if ( is_super_admin() || is_admin_bar_showing() ) {
     wp_register_style( 'toastrCSS', '//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css' );
     wp_register_script( 'toastrJS', '//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js' );
-    wp_register_script( 'jqueryJS', '//cdn.bootcss.com/jquery/3.1.1/jquery.min.js' );
+    wp_register_script( 'jqueryJS', '//cdn.bootcss.com/jquery/3.2.1/jquery.min.js' );
     wp_enqueue_style('toastrCSS');
     wp_enqueue_script('toastrJS');
     wp_enqueue_script('jqueryJS');
@@ -111,11 +111,13 @@ function refresh_alicdn_settings_page() {
   include_once 'aliyun-php-sdk-cdn/Request/v20141111/DescribeRefreshQuotaRequest.php';
 
   //getProfile的三个参数分别是：region, Access Key ID, Access Key Secret
-  $iClientProfile = DefaultProfile::getProfile("cn-hangzhou", get_option('cdn_access_key_id'), get_option('cdn_access_key_secret'));
-  $client = new DefaultAcsClient($iClientProfile);
-  $request = new \Cdn\Request\V20141111\DescribeRefreshQuotaRequest();
-  $request->setMethod("GET");
-  $response = $client->getAcsResponse($request);
+  if (get_option('cdn_access_key_id') && get_option('cdn_access_key_secret')) {
+    $iClientProfile = DefaultProfile::getProfile("cn-hangzhou", get_option('cdn_access_key_id'), get_option('cdn_access_key_secret'));
+    $client = new DefaultAcsClient($iClientProfile);
+    $request = new \Cdn\Request\V20141111\DescribeRefreshQuotaRequest();
+    $request->setMethod("GET");
+    $response = $client->getAcsResponse($request);
+  }
 ?>
 <div class="wrap" style="margin: 10px">
   <h1>阿里云 CDN 刷新设置</h1>
@@ -145,8 +147,10 @@ function refresh_alicdn_settings_page() {
       <h2>刷新自定义 URL</h2>
       <textarea type="text" cols="60" rows="10" name="cdn_refresh_urls" /><?php echo get_option('cdn_refresh_urls'); ?></textarea>
       <p>多个URL请用回车分隔，每个URL应当以 http:// 或 https:// 开头，一次提交不能超过100个URL</p>
+      <?php if (get_option('cdn_access_key_id') && get_option('cdn_access_key_secret')) { ?>
 			<p>注意：您的账户每天最多可以刷新(含预热)<?php echo $response->UrlQuota; ?>个文件(URL)和<?php echo $response->DirQuota; ?>个目录。刷新任务生效时间大约为5分钟。</p>
       <p>今日还可以刷新目录 <?php echo $response->DirRemain;?>次，刷新URL <?php echo $response->UrlRemain;?> 个。</p>
+      <?php } ?>
     </fieldset>
     <hr>
     <?php submit_button(); ?>
