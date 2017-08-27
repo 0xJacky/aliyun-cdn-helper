@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c197bee-45cb-4915-9f03-6cae0b40f03e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/aliyun-cdn.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Api.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Init.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Settings.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/settings.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddLiveAppRecordConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddLiveAppSnapshotConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddLiveDomainMappingRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddLivePullStreamInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddLiveStreamTranscodeRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ClearUserBlackListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ClearUserDomainBlackListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/CreateLiveStreamRecordIndexFilesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteHttpHeaderConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteLiveAppRecordConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteLiveAppSnapshotConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteLiveDomainMappingRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteLivePullStreamInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteLiveStreamTranscodeRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DeleteSpecificConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCdnDomainBaseDetailRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCdnDomainDetailRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCdnDomainLogsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCdnMonitorDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCdnRegionAndIspRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCdnServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCdnTypesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeCurrentCharge95InfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainBpsDataByTimeStampRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainBpsDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainCCAttackInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainCCDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainConfigsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainDownstreamBpsOfEdgeRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainFileSizeProportionDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainFlowDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainHitRateDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainHttpCodeDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainISPDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainOnlineUserNumberRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainPvDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainQpsDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainRegionDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainReqHitRateDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainSrcBpsDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainSrcFlowDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainTopFileTypeVisitRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainTopReferVisitRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainTopUrlVisitRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainUpstreamBpsOfEdgeRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainUpstreamOfCenterRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainUvDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainWafAttackInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainWafDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeDomainsUsageByDayRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeHistoryCharge95InfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeIpInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeL2VipsByDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveAppRecordConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveRecordConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveSnapshotConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveSpecificDomainMappingRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamBpsDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamDomainAppInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamLimitInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamNumberListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamOnlineUserNumRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamPushDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamPushErrorsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamRecordContentRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamRecordIndexFileRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamRecordIndexFilesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamRelayPushDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamRelayPushErrorsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamSnapshotInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamStreamStatusRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamTranscodeInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamsBlockListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamsControlHistoryRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamsFrameRateAndBitRateDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamsOnlineListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeLiveStreamsPublishListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeOneMinuteDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeRangeDataByLocateAndIspServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeRefreshQuotaRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeRefreshTasksRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeTopDomainsByFlowRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeUserConfigsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeUserDomainsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/DescribeUserVipsByDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ForbidLiveStreamRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/GetUserDomainBlackListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/IsGreyUserRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/MigrateDomainToHttpsDeliveryRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ModifyCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ModifyCdnServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ModifyFileCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ModifyHttpHeaderConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ModifyPathCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/OpenCdnServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/PreloadObjectCachesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/PurgeObjectCachesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/PushObjectCacheRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/RefreshObjectCachesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/ResumeLiveStreamRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetCcConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetDomainServerCertificateRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetErrorPageConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetFileCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetForceRedirectConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetForwardSchemeConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetHttpErrorPageConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetHttpHeaderConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetIgnoreQueryStringConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetLiveStreamsNotifyUrlConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetLocationAccessRestrictionRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetOptimizeConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetOssLogConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetPageCompressConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetPathCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetRangeConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetRefererConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetReqAuthConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetSourceHostConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetUserAgentAcessRestrictionRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetUserBlackListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetUserDomainBlackListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetVideoSeekConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/SetWafConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/StartCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/StartMixStreamsServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/StopCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/StopMixStreamsServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Cdn/Request/V20141111/UpdateLiveAppSnapshotConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/AddCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DeleteCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DeleteCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DeleteHttpHeaderConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeCdnDomainBaseDetailRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeCdnDomainDetailRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeCdnDomainLogsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeCdnMonitorDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeCdnServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeCdnTypesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainBpsDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainCCAttackInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainCCDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainConfigsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainFileSizeProportionDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainFlowDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainHitRateDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainHttpCodeDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainISPDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainPvDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainQpsDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainRegionDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainSrcBpsDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainSrcFlowDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainTopFileTypeVisitRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainTopReferVisitRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainTopUrlVisitRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainUvDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainWafAttackInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainWafDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeDomainsUsageByDayRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeIpInfoRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeLiveStreamOnlineUserNumRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeLiveStreamsBlockListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeLiveStreamsControlHistoryRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeLiveStreamsOnlineListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeLiveStreamsPublishListRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeOneMinuteDataRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeRefreshQuotaRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeRefreshTasksRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeTopDomainsByFlowRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/DescribeUserDomainsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/ForbidLiveStreamRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/IsGreyUserRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/ModifyCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/ModifyCdnServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/ModifyFileCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/ModifyHttpHeaderConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/ModifyPathCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/OpenCdnServiceRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/PreloadObjectCachesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/PurgeObjectCachesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/PushObjectCacheRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/RefreshObjectCachesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/ResumeLiveStreamRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetCcConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetDomainServerCertificateRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetErrorPageConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetFileCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetHttpHeaderConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetIgnoreQueryStringConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetLiveStreamsNotifyUrlConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetOptimizeConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetPageCompressConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetPathCacheExpiredConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetRangeConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetRefererConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetReqAuthConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetSourceHostConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetVideoSeekConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/SetWafConfigRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/StartCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-cdn/Request/v20141111/StopCdnDomainRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/AcsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/AcsResponse.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Auth/Credential.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Auth/ISigner.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Auth/ShaHmac1Signer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Auth/ShaHmac256Signer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Autoloader/Autoloader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/DefaultAcsClient.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Exception/ClientException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Exception/ServerException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Http/HttpHelper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Http/HttpResponse.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/IAcsClient.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Profile/DefaultProfile.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Profile/IClientProfile.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Regions/Endpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Regions/EndpointConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Regions/EndpointProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Regions/ProductDomain.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/Regions/endpoints.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/RoaAcsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/RpcAcsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/Auth/CredentialTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/Auth/ShaHmac1SignerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/Auth/ShaHmac256SignerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/BaseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/BatchCompute/ListImagesRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/DefaultAcsClientTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/Ecs/Rquest/DescribeRegionsRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/Http/HttpHelperTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/Profile/DefaultProfileTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/aliyun-php-sdk-core/UnitTest/Regions/EndpointProviderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/refresh_alicdn.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="aliyun-cdn.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aliyun-cdn.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+              <folding>
+                <element signature="e#6#263#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/autoload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="637">
+              <caret line="61" column="54" lean-forward="true" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Init.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Init.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-184">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="39" />
+              <folding>
+                <element signature="e#6#810#0#PHP" expanded="true" />
+                <marker date="1503843429000" expanded="true" signature="1518:2876" ph="..." />
+                <marker date="1503843429000" expanded="true" signature="1562:2853" ph="{...}" />
+                <marker date="1503843429000" expanded="true" signature="1596:1627" ph="{...}" />
+                <marker date="1503843429000" expanded="true" signature="1596:1862" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1503843429000" expanded="true" signature="1596:1885" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1503843429000" expanded="true" signature="1596:2116" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1503843429000" expanded="true" signature="1596:2132" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1503843429000" expanded="true" signature="1596:2833" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1503843429000" expanded="true" signature="1738:1860" ph="{&quot;action&quot;: 'refresh_cdn'...}" />
+                <marker date="1503843429000" expanded="true" signature="1909:2083" ph="{...}" />
+                <marker date="1503843429000" expanded="true" signature="2133:2811" ph="{...}" />
+                <marker date="1503843429000" expanded="true" signature="2303:2785" ph="{...}" />
+                <marker date="1503843429000" expanded="true" signature="2344:2455" ph="..." />
+                <marker date="1503843429000" expanded="true" signature="2495:2604" ph="..." />
+                <marker date="1503843429000" expanded="true" signature="2644:2755" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Helper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Helper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+              <folding>
+                <element signature="e#6#810#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="1" />
+              <folding>
+                <element signature="e#6#810#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="605">
+              <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+              <folding>
+                <element signature="e#6#810#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+              <folding>
+                <element signature="e#6#810#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="345">
+                <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$data</find>
+      <find>get_o</find>
+      <find>getProfile</find>
+      <find>Qouta</find>
+      <find>ServerException</find>
+      <find>buildApiException</find>
+      <find>getAcsResponse</find>
+      <find>self::</find>
+      <find>header</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>self::</replace>
+      <replace>self::$</replace>
+      <replace>$list</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/composer.js" />
+        <option value="$PROJECT_DIR$/refresh_alicdn.php" />
+        <option value="$PROJECT_DIR$/includes/Config.php" />
+        <option value="$PROJECT_DIR$/includes/Init.php" />
+        <option value="$PROJECT_DIR$/includes/Helper.php" />
+        <option value="$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Config.php" />
+        <option value="$PROJECT_DIR$/sdk/aliyun-php-sdk-core/DefaultAcsClient.php" />
+        <option value="$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Exception/ServerException.php" />
+        <option value="$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Exception/ClientException.php" />
+        <option value="$PROJECT_DIR$/includes/Api.php" />
+        <option value="$PROJECT_DIR$/includes/Settings.php" />
+        <option value="$PROJECT_DIR$/src/Helper.php" />
+        <option value="$PROJECT_DIR$/src/Settings.php" />
+        <option value="$PROJECT_DIR$/src/Config.php" />
+        <option value="$PROJECT_DIR$/src/Init.php" />
+        <option value="$PROJECT_DIR$/autoload.php" />
+        <option value="$PROJECT_DIR$/aliyun-cdn.php" />
+        <option value="$PROJECT_DIR$/src/Api.php" />
+        <option value="$PROJECT_DIR$/view/settings.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="387" />
+    <option name="y" value="47" />
+    <option name="width" value="1770" />
+    <option name="height" value="963" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="aliyun-cdn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="aliyun-cdn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="aliyun-cdn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="aliyun-cdn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="aliyun-cdn" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="aliyun-cdn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="aliyun-cdn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="aliyun-cdn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="aliyun-cdn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c197bee-45cb-4915-9f03-6cae0b40f03e" name="Default" comment="" />
+      <created>1503710426358</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1503710426358</updated>
+      <workItem from="1503710427638" duration="261000" />
+      <workItem from="1503710866494" duration="50134000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="50395000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="387" y="47" width="1770" height="963" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35185185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>$PROJECT_DIR$/../../..</wordpressPath>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/screenshot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/refresh_alicdn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/AcsRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-514">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Auth/Credential.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddLiveDomainMappingRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/DefaultAcsClient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/UnitTest/DefaultAcsClientTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/UnitTest/Http/HttpHelperTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Autoloader/Autoloader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/UnitTest/Ecs/Rquest/DescribeRegionsRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Profile/IClientProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-cdn/Cdn/Request/V20141111/AddCdnDomainRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1663">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Exception/ClientException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Exception/ServerException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Profile/DefaultProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Http/HttpHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-core/AcsResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/refresh_alicdn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-383">
+          <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sdk/aliyun-php-sdk-cdn/Cdn/Request/V20141111/PushObjectCacheRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="e#6#810#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+          <folding>
+            <element signature="e#6#810#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#810#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+          <folding>
+            <element signature="e#6#810#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="39" />
+          <folding>
+            <element signature="e#6#810#0#PHP" expanded="true" />
+            <marker date="1503843429000" expanded="true" signature="1518:2876" ph="..." />
+            <marker date="1503843429000" expanded="true" signature="1562:2853" ph="{...}" />
+            <marker date="1503843429000" expanded="true" signature="1596:1627" ph="{...}" />
+            <marker date="1503843429000" expanded="true" signature="1596:1862" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1503843429000" expanded="true" signature="1596:1885" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1503843429000" expanded="true" signature="1596:2116" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1503843429000" expanded="true" signature="1596:2132" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1503843429000" expanded="true" signature="1596:2833" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1503843429000" expanded="true" signature="1738:1860" ph="{&quot;action&quot;: 'refresh_cdn'...}" />
+            <marker date="1503843429000" expanded="true" signature="1909:2083" ph="{...}" />
+            <marker date="1503843429000" expanded="true" signature="2133:2811" ph="{...}" />
+            <marker date="1503843429000" expanded="true" signature="2303:2785" ph="{...}" />
+            <marker date="1503843429000" expanded="true" signature="2344:2455" ph="..." />
+            <marker date="1503843429000" expanded="true" signature="2495:2604" ph="..." />
+            <marker date="1503843429000" expanded="true" signature="2644:2755" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="61" column="54" lean-forward="true" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aliyun-cdn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+          <folding>
+            <element signature="e#6#263#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="345">
+            <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
