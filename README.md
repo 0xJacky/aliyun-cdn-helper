@@ -56,5 +56,5 @@ PHP 5.3 ~ 7.1 （取决于阿里云 SDK）
 
 [1]:	https://github.com/0xJacky/aliyun-cdn-helper/releases/latest
 
-[image-1]:	https://raw.githubusercontent.com/0xJacky/aliyun_cdn_helper/master/screenshot.png
-[image-2]:  https://dl.jackyu.cn/my_alipay.jpg
+[image-1]:	https://raw.githubusercontent.com/0xJacky/aliyun-cdn-helper/master/screenshot.png
+[image-2]:  https://dl.jackyu.cn/my_alipay.png?x-oss-process=image/resize,h_360
