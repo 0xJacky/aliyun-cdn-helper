@@ -1,6 +1,6 @@
 # 阿里云 CDN 辅助插件 (Aliyun CDN Helper For WordPress)
 
-本插件为 WordPress 的管理页面添加快捷按钮，方便站长在修改完静态资源后能快速刷新 CDN 缓存。
+本插件为 WordPress 的管理页面的工具栏添加快捷按钮，方便站长在修改完静态资源后能快速刷新 CDN 缓存。
 
 ### 当前版本
 

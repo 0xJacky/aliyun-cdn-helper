@@ -28,6 +28,9 @@ class Init {
 			add_action( 'admin_footer', array( $this, 'button_javascript' ) );
 			add_action( 'admin_footer', array( $this, 'load_resources' ) );
 		}
+		if (! (Config::$accessKeyId && Config::$accessKeySecret || (isset($_GET['page']) && $_GET['page'] == 'aliyun-cdn-helper'))) {
+			add_action('admin_notices', array($this, 'warning'));
+		}
 	}
 
 	/* 后台状态栏添加按钮 */
@@ -60,6 +63,9 @@ class Init {
                         success: function(data) {
                         	toastr.clear();
                         	jQuery('alicdn_shortcut').removeAttr(\"disabled\");
+                        	if (data == 0) {
+                        		toastr.error('失败：请检查 Access Key ID 和 Access key Secret 是否输入正确。');
+                        	}
                             switch( data.status ) {
                                 case 1:
                                     toastr.success( data.message );
@@ -83,5 +89,9 @@ class Init {
 		wp_register_script( 'toastrJS', plugins_url( '../resources/toastr.min.js', __FILE__ ) );
 		wp_enqueue_style( 'toastrCSS' );
 		wp_enqueue_script( 'toastrJS' );
+	}
+
+	public function warning() {
+		echo "<div id='alicdn-warning' class='updated fade'><p>Aliyun CDN Helper 启动成功，您需要 <a href='".Config::$settings_url."'>配置</a> 来让他工作</p></div>";
 	}
 }

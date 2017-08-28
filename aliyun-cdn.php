@@ -44,7 +44,7 @@ try {
 	new CDN\WP\Settings();
 	new CDN\WP\Api();
 } catch ( ServerException $e ) {
-	echo $e->getMessage();
+	//echo $e->getMessage();
 	register_activation_hook( __FILE__, function () {
 		add_option( 'alicdn_options', Config::$originOptions, '', 'yes' ); //autoload
 	} );
