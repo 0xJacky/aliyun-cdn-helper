@@ -3,7 +3,7 @@
  * Plugin Name: Aliyun CDN Helper
  * Plugin URI: https://github.com/0xJacky/aliyun_cdn_helper
  * Description: 阿里云 CDN 辅助工具。Aliyun CDN auxiliary tool for wordpress.
- * Version: 2.0
+ * Version: 2.1
  * Author: 0xJacky
  * Author URI: https://jackyu.cn/
  * License: GPL2
@@ -28,16 +28,17 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-define( 'ALIYUN_CDN_PATH', plugin_dir_path( __FILE__ ) );
-
-/*ini_set( 'display_errors', 1 );
+ini_set( 'display_errors', 1 );
 ini_set( 'display_startup_errors', 1 );
-error_reporting( - 1 );*/
+error_reporting( - 1 );
+
+define( 'ALIYUN_CDN_PATH', dirname( __FILE__ ) );
 require( ALIYUN_CDN_PATH . '/autoload.php' );
 
 use CDN\WP\Config;
 
-Config::init();
+Config::init( ALIYUN_CDN_PATH );
+load_plugin_textdomain( 'aliyun-cdn', false, Config::$plugin_path . '/languages' );
 
 try {
 	new CDN\WP\Init();

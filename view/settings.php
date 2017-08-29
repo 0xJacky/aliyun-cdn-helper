@@ -20,52 +20,54 @@
 defined( 'ALIYUN_CDN_PATH' ) OR exit();
 $options = array_merge( CDN\WP\Config::$originOptions, get_option( 'alicdn_options', array() ) );
 $type    = is_numeric( $options['refresh_type'] ) ? esc_attr( $options['refresh_type'] ) : 1;
-$sk      = $options['sk'] ? '我藏起来了:-D' : '';
+$d       = 'aliyun-cdn';
+$sk      = $options['sk'] ? __( 'You can\'t see me', $d ) : '';
 ?>
 <div class="wrap" style="margin: 10px">
-    <h1>阿里云 CDN</h1>
+    <h1><?php _e( 'Alibaba Cloud CDN', $d ); ?></h1>
     <form method="POST" action="<?php echo wp_nonce_url( CDN\WP\Config::$settings_url ); ?>">
         <hr>
         <fieldset>
-            <h2>Access Key ID</h2>
+            <h2><?php _e( 'Access Key ID', $d ); ?></h2>
             <input type="text" name="access_key_id" value="<?php echo $options['ak'] ?>"/>
-            <p>请在此输入您在阿里云管理控制台中获取到的 Access Key ID</p>
+            <h2><?php _e( 'Access key Secret', $d ); ?></h2>
+            <input type="text" name="access_key_secret" value="" placeholder="<?php echo $sk; ?>:-D"/>
+            <p><?php _e( 'Please enter the Access Key ID and the Access Key Secret, you obtained in the Alibaba Cloud Management Console.', $d ); ?></p>
+            <p><?php _e( 'Make sure that your Access Key ID and Access Key Secret are entered correctly and that CDN acceleration has been turned on for the current domain name.', $d ); ?></p>
+            <p><?php printf( __( 'If you don\'t know how to use Alibaba Cloud CDN please visit: <a href="%s">https://cdn.aliyun.com</a>', $d ), 'https://cdn.aliyun.com' ) ?></p>
+            <p><?php _e( 'Document: <a href="https://www.alibabacloud.com/help/doc-detail/27200.htm">https://www.alibabacloud.com/help/doc-detail/27200.htm</a>', $d ); ?></p>
         </fieldset>
         <fieldset>
-            <h2>Access key Secret</h2>
-            <input type="text" name="access_key_secret" value="" placeholder="<?php echo $sk; ?>"/>
-            <p>请在此输入您在阿里云管理控制台中获取到的 Access Key Secret</p>
-        </fieldset>
-        <fieldset>
-            <h2>刷新文件类型</h2>
-            <ol><input type="radio" name="refresh_type" value="1" <?php echo checked( 1, $type, false ); ?>/>仅刷新当前主题的
-                style.css
+            <h2><?php _e( 'Refresh file type', $d ); ?></h2>
+            <ol><input type="radio" name="refresh_type"
+                       value="1" <?php echo checked( 1, $type, false ); ?>/><?php _e( 'style.css only (Request object type: File)', $d ); ?>
             </ol>
-            <ol><input type="radio" name="refresh_type" value="2" <?php echo checked( 2, $type, false ); ?>/>刷新当前主题目录内的静态文件（目录）
+            <ol><input type="radio" name="refresh_type"
+                       value="2" <?php echo checked( 2, $type, false ); ?>/><?php _e( 'Refresh static files in the current theme directory (Request object type: Directory)', $d ); ?>
             </ol>
-            <ol><input type="radio" name="refresh_type" value="3" <?php echo checked( 3, $type, false ); ?>/>全站刷新（目录）
+            <ol><input type="radio" name="refresh_type"
+                       value="3" <?php echo checked( 3, $type, false ); ?>/><?php _e( 'The whole site (Request object type: Directory)', $d ); ?>
             </ol>
         </fieldset>
         <fieldset>
-            <h2>URL 预热</h2>
-            <p>将源站的内容主动预热到 L2 Cache 节点上，用户首次访问可直接命中缓存，缓解源站压力。</p>
-            <p>如果您是首次使用 CDN 和这个插件，您可以点击下面的预热按钮，插件将会自动搜索当前主题目录类的静态资源文件，
-                并提交到预热接口。</p>
-            <a class="button" onclick="task(2)">预热</a>
+            <h2><?php _e( 'Push object cache', $d ); ?></h2>
+            <p><?php _e( 'Takes content from the origin site and actively preprocess it to the L2 Cache node. Upon first access, users can directly cache hit to relieve pressure on the origin site.', $d ); ?></p>
+            <p><?php _e( 'If you are using Alibaba Cloud CDN and this plugin for the first time, you can click on the following button, 
+            the plugin will automatically search the current theme directory of the static resource file, and submitted the URLs to the interface.', $d ); ?></p>
+            <a class="button" onclick="task(2)"><?php _e( 'Push', $d ) ?></a>
         </fieldset>
         <fieldset>
-            <h2>刷新自定义 URL</h2>
+            <h2><?php _e( 'Custom URL', $d ); ?></h2>
             <textarea type="text" cols="60" rows="10"
-                      name="custom_urls"><?php echo $options['custom_urls']; ?></textarea>
-            <p>多个 URL 请用回车分隔，每个 URL 应当以 <code>http://</code> 或 <code>https://</code>
-                开头，一次提交不能超过100个URL，如果输入的是目录，请不要忘记在结尾添加 <code>/</code></p>
-            <a class="button" onclick="task(3)">刷新</a>
+                      name="custom_urls" id="c_url"><?php echo $options['custom_urls']; ?></textarea>
+            <p><?php _e( 'Multiple URLs should use a carriage return to separate, if you enter the directory, please do not forget to add <code>/</code>', $d ); ?></p>
+            <a class="button" onclick="custom_url()"><?php _e( 'Refresh', $d ); ?></a>
 			<?php if ( $options['ak'] && $options['sk'] ) { ?>
                 <p id="quota"></p>
 			<?php } ?>
         </fieldset>
         <hr>
-        <button class="button button-primary" type="submit">保存设置</button>
+        <button class="button button-primary" type="submit"><?php _e( 'Save', $d ); ?></button>
     </form>
 </div>
 <script type="text/javascript">
@@ -78,7 +80,7 @@ $sk      = $options['sk'] ? '我藏起来了:-D' : '';
                 module: parseInt(module)
             },
             beforeSend: function () {
-                toastr.info('任务提交中，请稍后...');
+                toastr.info('<?php _e( 'Task is being submitted, please wait ...', $d ); ?>');
                 jQuery(this).attr({disabled: "disabled"});
             },
             success: function (data) {
@@ -99,6 +101,23 @@ $sk      = $options['sk'] ? '我藏起来了:-D' : '';
         });
     }
 
+    function custom_url() {
+        jQuery.ajax({
+            type: 'POST',
+            url: "",
+            data: {
+                custom_urls: jQuery("#c_url").val()
+            },
+            beforeSend: function () {
+                toastr.info('<?php _e( 'Task is being submitted, please wait ...', $d ); ?>');
+                jQuery(this).attr({disabled: "disabled"});
+            },
+            success: function () {
+                task(3)
+            }
+        });
+    }
+
     jQuery(function () {
         if (jQuery('#quota')) {
             jQuery.ajax({
@@ -109,16 +128,10 @@ $sk      = $options['sk'] ? '我藏起来了:-D' : '';
                     module: 5
                 },
                 beforeSend: function () {
-                    jQuery('#quota').html("正在查询预热刷新操作余量...");
+                    jQuery('#quota').html('<?php _e( 'Querying operation quota...', $d ); ?>');
                 },
                 success: function (data) {
-                    if (data.status == 1) {
-                        $msg = "注意：您的账户每天最多可以刷新（含预热）" + data.message['UrlQuota'] + " 个文件(URL)和 " + data.message['DirQuota'] + " 个目录。刷新任务生效时间大约为5分钟。";
-                        $msg += "<br />今日还可以刷新目录 " + data.message['DirRemain'] + " 次，刷新URL " + data.message['UrlRemain'] + " 个。";
-                    } else {
-                        $msg = "查询失败，错误原因" + data.message;
-                    }
-                    jQuery('#quota').html($msg);
+                    jQuery('#quota').html(data.message);
                 }
             });
         }

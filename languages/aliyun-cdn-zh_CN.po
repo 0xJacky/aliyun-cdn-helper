@@ -1,0 +1,239 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Aliyun CDN Helper\n"
+"POT-Creation-Date: 2017-08-29 15:54+0800\n"
+"PO-Revision-Date: 2017-08-29 15:55+0800\n"
+"Last-Translator: \n"
+"Language-Team: 0xJacky\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: aliyun-cdn.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: src/Api.php:109
+#, php-format
+msgid ""
+"Fail to refresh!\n"
+"Error message: %s"
+msgstr ""
+"刷新失败!\n"
+"错误信息: %s"
+
+#: src/Api.php:122
+#, php-format
+msgid ""
+"Fail to push!\n"
+"Error message: %s"
+msgstr ""
+"预热失败!\n"
+"错误信息: %s"
+
+#: src/Api.php:133 view/settings.php:64
+msgid "Refresh"
+msgstr "刷新"
+
+#: src/Api.php:136 view/settings.php:57
+msgid "Push"
+msgstr "预热"
+
+#: src/Api.php:159
+msgid " success!"
+msgstr "成功!"
+
+#: src/Api.php:162
+#, php-format
+msgid ""
+" failed!\n"
+"Error message: %s"
+msgstr ""
+" 失败！\n"
+"错误消息：%s"
+
+#: src/Api.php:165
+msgid "Today's refresh (push) has reached the maximum number of operations!"
+msgstr "今日刷新（预热）数量已达到最大值！"
+
+#: src/Api.php:172
+#, php-format
+msgid ""
+"Notice: You can submit a maximum daily refresh-type request amount of URL: "
+"%s, amount of directory: %s. <br />Today you can refresh URL: %s times, "
+"directory: %s times."
+msgstr ""
+"注意: 您的账户每天最多可以刷新（含预热）%s 个文件（URL）和 %s 个目录，任务生"
+"效时间大约为 5 分钟。\n"
+"今日可刷新文件（URL）: %s 个，目录: %s 。"
+
+#: src/Init.php:41
+msgid "Refresh CDN"
+msgstr "刷新 CDN"
+
+#: src/Init.php:60
+msgid "Refresh task is being submitted, please wait ..."
+msgstr "正在提交刷新任务，请稍候..."
+
+#: src/Init.php:67
+msgid ""
+"Error：Please check whether the Access Key ID and Access key Secret are "
+"entered correctly."
+msgstr "错误：请检查 Access Key ID 和 Access key Secret 是否输入输入。"
+
+#: src/Init.php:96
+#, php-format
+msgid ""
+"Aliyun CDN Helper launch success, you need to <a href=\"%s\">configure</a> "
+"it to work."
+msgstr "Aliyun CDN Helper 启动成功，您需要<a href=\"%s\">配置</a>它工作。"
+
+#: src/Settings.php:34 src/Settings.php:35 view/settings.php:27
+msgid "Alibaba Cloud CDN"
+msgstr "阿里云 CDN"
+
+#: src/Settings.php:58
+msgid "Configuration saved successfully"
+msgstr "设置保存成功"
+
+#: src/Settings.php:60
+#, php-format
+msgid "Fail to save configuration, error message: %s"
+msgstr "无法保存配置，错误消息：%s"
+
+#: view/settings.php:24
+msgid "You can't see me"
+msgstr "你看不到我"
+
+#: view/settings.php:31
+msgid "Access Key ID"
+msgstr "Access Key ID"
+
+#: view/settings.php:33
+msgid "Access key Secret"
+msgstr "Access key Secret"
+
+#: view/settings.php:35
+msgid ""
+"Please enter the Access Key ID and the Access Key Secret, you obtained in "
+"the Alibaba Cloud Management Console."
+msgstr "请输入您在阿里云管理控制台获取的 Access Key ID 和 Access Key Secret。"
+
+#: view/settings.php:36
+msgid ""
+"Make sure that your Access Key ID and Access Key Secret are entered "
+"correctly and that CDN acceleration has been turned on for the current "
+"domain name."
+msgstr ""
+"请确保您的 Access Key ID 和 Access Key Secret 已正确输入，并且已为当前域名开"
+"启 CDN 加速。"
+
+#: view/settings.php:37
+#, php-format
+msgid ""
+"If you don't know how to use Alibaba Cloud CDN please visit: <a href=\"%s"
+"\">https://cdn.aliyun.com</a>"
+msgstr ""
+"如果您不知道如何使用阿里云 CDN，请访问： <a href=\"%s\">https://cdn.aliyun."
+"com</a>"
+
+#: view/settings.php:38
+msgid ""
+"Document: <a href=\"https://www.alibabacloud.com/help/doc-detail/27200.htm"
+"\">https://www.alibabacloud.com/help/doc-detail/27200.htm</a>"
+msgstr ""
+"如果出现错误，请查阅: <a href=\"https://help.aliyun.com/"
+"document_detail/27200.html\">https://help.aliyun.com/document_detail/27200."
+"html</a>"
+
+#: view/settings.php:41
+msgid "Refresh file type"
+msgstr "刷新文件类型"
+
+#: view/settings.php:43
+msgid "style.css only (Request object type: File)"
+msgstr "仅刷新 style.css （请求对象类型：文件）"
+
+#: view/settings.php:46
+msgid ""
+"Refresh static files in the current theme directory (Request object type: "
+"Directory)"
+msgstr "刷新当前主题目录中的静态文件（请求对象类型：目录）"
+
+#: view/settings.php:49
+msgid "The whole site (Request object type: Directory)"
+msgstr "全站（请求对象类型：目录）"
+
+#: view/settings.php:53
+msgid "Push object cache"
+msgstr "预热"
+
+#: view/settings.php:54
+msgid ""
+"Takes content from the origin site and actively preprocess it to the L2 "
+"Cache node. Upon first access, users can directly cache hit to relieve "
+"pressure on the origin site."
+msgstr ""
+"从源站点获取内容，并主动将其预处理到 L2 Cache 节点。首次访问时，用户可以直接"
+"缓存命中以减轻原始站点的压力。"
+
+#: view/settings.php:55
+msgid ""
+"If you are using Alibaba Cloud CDN and this plugin for the first time, you "
+"can click on the following button, \n"
+"            the plugin will automatically search the current theme directory "
+"of the static resource file, and submitted the URLs to the interface."
+msgstr ""
+"如果您是第一次使用阿里云 CDN 和这个插件，您可以点击以下按钮，插件将自动搜索静"
+"态资源文件的当前主题目录，并将URL提交到预热接口。"
+
+#: view/settings.php:60
+msgid "Custom URL"
+msgstr "自定义 URL"
+
+#: view/settings.php:63
+msgid ""
+"Multiple URLs should use a carriage return to separate, if you enter the "
+"directory, please do not forget to add <code>/</code>"
+msgstr ""
+"多个 URL 应该使用回车分隔，如果您输入目录，请不要忘记添加<code>/</code>"
+
+#: view/settings.php:70
+msgid "Save"
+msgstr "保存"
+
+#: view/settings.php:83
+msgid "Task is being submitted, please wait ..."
+msgstr "正在提交任务，请稍候..."
+
+#: view/settings.php:114
+msgid "Querying operation quota..."
+msgstr "正在查询操作配额..."
+
+#. Plugin Name of the plugin/theme
+msgid "Aliyun CDN Helper"
+msgstr "阿里云 CDN 辅助工具"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/0xJacky/aliyun_cdn_helper"
+msgstr "https://github.com/0xJacky/aliyun_cdn_helper"
+
+#. Description of the plugin/theme
+msgid "阿里云 CDN 辅助工具。Aliyun CDN auxiliary tool for wordpress."
+msgstr "阿里云 CDN 辅助工具。Aliyun CDN auxiliary tool for wordpress."
+
+#. Author of the plugin/theme
+msgid "0xJacky"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://jackyu.cn/"
+msgstr ""

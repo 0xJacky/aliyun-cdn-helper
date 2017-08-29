@@ -28,8 +28,8 @@ class Init {
 			add_action( 'admin_footer', array( $this, 'button_javascript' ) );
 			add_action( 'admin_footer', array( $this, 'load_resources' ) );
 		}
-		if (! (Config::$accessKeyId && Config::$accessKeySecret || (isset($_GET['page']) && $_GET['page'] == 'aliyun-cdn-helper'))) {
-			add_action('admin_notices', array($this, 'warning'));
+		if ( ! ( Config::$accessKeyId && Config::$accessKeySecret || ( isset( $_GET['page'] ) && $_GET['page'] == 'aliyun-cdn-helper' ) ) ) {
+			add_action( 'admin_notices', array( $this, 'warning' ) );
 		}
 	}
 
@@ -38,7 +38,7 @@ class Init {
 		global $wp_admin_bar;
 		$wp_admin_bar->add_menu( array(
 				'id'    => 'alicdn_shortcut',
-				'title' => '刷新 CDN',
+				'title' => __( 'Refresh CDN', 'aliyun-cdn' ),
 				'href'  => '#',
 				'meta'  => array( 'onclick' => 'refresh_alicdn()' )
 			)
@@ -57,14 +57,14 @@ class Init {
                             module: 1
                         },
                        	beforeSend: function() {
-                       	  	toastr.info( '刷新任务提交中，请稍后...' );
+                       	  	toastr.info( '" . __( 'Refresh task is being submitted, please wait ...', 'aliyun-cdn' ) . "' );
                        	  	jQuery('alicdn_shortcut').attr({ disabled: \"disabled\" });
                        	},
                         success: function(data) {
                         	toastr.clear();
                         	jQuery('alicdn_shortcut').removeAttr(\"disabled\");
                         	if (data == 0) {
-                        		toastr.error('失败：请检查 Access Key ID 和 Access key Secret 是否输入正确。');
+                        		toastr.error('" . __( 'Error：Please check whether the Access Key ID and Access key Secret are entered correctly.', 'aliyun-cdn' ) . "');
                         	}
                             switch( data.status ) {
                                 case 1:
@@ -92,6 +92,10 @@ class Init {
 	}
 
 	public function warning() {
-		echo "<div id='alicdn-warning' class='updated fade'><p>Aliyun CDN Helper 启动成功，您需要 <a href='".Config::$settings_url."'>配置</a> 来让他工作</p></div>";
+		$html = "<div id='alicdn-warning' class='updated fade'><p>" .
+		        __( 'Aliyun CDN Helper launch success, you need to <a href="%s">configure</a> it to work.', 'aliyun-cdn' ) .
+		        "</p></div>";
+
+		echo sprintf( $html, Config::$settings_url );
 	}
 }

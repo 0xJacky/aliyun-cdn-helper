@@ -31,8 +31,8 @@ class Settings {
 	}
 
 	public function add_admin_menu() {
-		add_options_page( '阿里云 CDN',
-			'阿里云 CDN', 'administrator',
+		add_options_page( __( 'Alibaba Cloud CDN', 'aliyun-cdn' ),
+			__( 'Alibaba Cloud CDN', 'aliyun-cdn' ), 'administrator',
 			'aliyun-cdn-helper',
 			array( $this, 'settings_page' ) );
 	}
@@ -55,9 +55,9 @@ class Settings {
 			isset( $_POST['custom_urls'] ) && $options['custom_urls'] = trim( $_POST['custom_urls'] );
 
 			update_option( 'alicdn_options', $options );
-			$msg = '<div class="updated"><p><strong>设置已保存</strong></p></div>';
+			$msg = '<div class="updated"><p><strong>' . __( 'Configuration saved successfully', 'aliyun-cdn' ) . '</strong></p></div>';
 		} catch ( \Exception $e ) {
-			$msg = '<div class="error"><p><strong>无法保存设置，错误信息:' . $e->getMessage() . '</strong></p></div>';
+			$msg = '<div class="error"><p><strong>' . sprintf( __( 'Fail to save configuration, error message: %s', 'aliyun-cdn' ), $e->getMessage() ) . '</strong></p></div>';
 		}
 
 		echo $msg;

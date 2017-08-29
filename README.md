@@ -4,7 +4,7 @@
 
 ### 当前版本
 
-v2.0
+v2.1
 
 ![image][image-1]
 
@@ -13,7 +13,7 @@ v2.0
 1. 方便刷新缓存
 2. 配置简单
 3. 设置页面可以显示当日的刷新剩余量
-4. 中英文支持，汉化错误提示（TODO)
+4. 中英文支持
 5. 支持文件刷新和目录刷新
 6. 支持批量预热文件
 
@@ -29,7 +29,7 @@ PHP 5.3 ~ 7.1 （取决于阿里云 SDK）
 
 #### 安装
 
-计划提交到 WordPress 插件商店，但在此之前，您需要使用以下的安装方法：
+插件已提交到 WordPress 插件商店，正在等待审核，在此之前，您需要使用以下的安装方法：
 
 将压缩包解压，上传到 `/wp-content/plugins/` 或通过 WordPress 插件管理页面上传插件压缩包来安装
 
@@ -66,5 +66,5 @@ PHP 5.3 ~ 7.1 （取决于阿里云 SDK）
 
 [1]:	https://github.com/0xJacky/aliyun-cdn-helper/releases/latest
 
-[image-1]:	https://raw.githubusercontent.com/0xJacky/aliyun-cdn-helper/master/screenshot.png
+[image-1]:	https://raw.githubusercontent.com/0xJacky/aliyun-cdn-helper/master/assets/screenshot-1.png
 [image-2]:  https://dl.jackyu.cn/my_alipay.png?x-oss-process=image/resize,h_360

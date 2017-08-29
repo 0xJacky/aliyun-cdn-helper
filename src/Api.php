@@ -93,6 +93,7 @@ class Api {
 			case 5:
 				$this->get_quota();
 				exit();
+				break;
 		}
 	}
 
@@ -105,7 +106,7 @@ class Api {
 		try {
 			$this->handle( $urls, 'refresh', $object_type );
 		} catch ( \ServerException $e ) {
-			$this->response( 2, "刷新失败！\n错误详情: " . $e->getErrorMessage() );
+			$this->response( 2, sprintf( __( "Fail to refresh!\nError message: %s", "aliyun-cdn" ), $e->getErrorMessage() ) );
 		}
 	}
 
@@ -118,7 +119,7 @@ class Api {
 		try {
 			$this->handle( $urls, 'push' );
 		} catch ( \ServerException $e ) {
-			$this->response( 2, "预热失败！\n错误详情: " . $e->getErrorMessage() );
+			$this->response( 2, sprintf( __( "Fail to push!\nError message: %s", "aliyun-cdn" ), $e->getErrorMessage() ) );
 		}
 	}
 
@@ -129,10 +130,10 @@ class Api {
 
 			if ( $type == 'refresh' ) {
 				$requestId = 'RefreshTaskId';
-				$desc      = '缓存刷新';
+				$desc      = __( 'Refresh', 'aliyun-cdn' );
 			} else {
 				$requestId = 'RequestId';
-				$desc      = '预热';
+				$desc      = __( 'Push', 'aliyun-cdn' );
 			}
 
 			if ( is_array( $urls ) ) {
@@ -155,27 +156,23 @@ class Api {
 			}
 
 			if ( $success ) {
-				$this->response( 1, $desc . "成功!" );
+				$this->response( 1, $desc . __( ' success!', 'aliyun-cdn' ) );
 
 			} else {
-				$this->response( 2, $desc . "失败！\n错误详情: " . $result["Message"] );
+				$this->response( 2, $desc . sprintf( __( " failed!\nError message: %s", "aliyun-cdn" ), $result["Message"] ) );
 			}
 		} else {
-			$this->response( 3, "今日刷新（预热）次数以达上限!" );
+			$this->response( 3, __( 'Today\'s refresh (push) has reached the maximum number of operations!', 'aliyun-cdn' ) );
 		}
 	}
 
 	public function get_quota() {
 		try {
 			$Quota = self::$Quota;
-			$quota = array(
-				'DirQuota'  => $Quota->DirQuota,
-				'DirRemain' => $Quota->DirRemain,
-				'UrlQuota'  => $Quota->UrlQuota,
-				'UrlRemain' => $Quota->UrlRemain
-			);
-			$this->response( 1, $quota );
+			$html  = sprintf( __( 'Notice: You can submit a maximum daily refresh-type request amount of URL: %s, amount of directory: %s. <br />Today you can refresh URL: %s times, directory: %s times.', 'aliyun-cdn' ), $Quota->UrlQuota, $Quota->DirQuota, $Quota->UrlRemain, $Quota->UrlQuota );
+			$this->response( 1, $html );
 		} catch ( \ServerException $e ) {
+			$this->response( 2, $e->setErrorMessage() );
 			$this->response( 2, $e->setErrorMessage() );
 		}
 

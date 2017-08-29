@@ -34,9 +34,11 @@ class Config {
 	);
 
 	public static $options = '';
+	public static $plugin_path = 'aliyun-cdn';
 	public static $settings_url = "options-general.php?page=aliyun-cdn-helper";
 
-	public static function init() {
+	public static function init( $plugin_path = "" ) {
+		$plugin_path && self::$plugin_path = plugin_basename( $plugin_path );
 		self::$options         = array_merge( self::$originOptions, get_option( 'alicdn_options', array() ) );
 		self::$accessKeyId     = self::$options['ak'];
 		self::$accessKeySecret = self::$options['sk'];
