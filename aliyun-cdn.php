@@ -28,9 +28,9 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-ini_set( 'display_errors', 1 );
+/*ini_set( 'display_errors', 1 );
 ini_set( 'display_startup_errors', 1 );
-error_reporting( - 1 );
+error_reporting( - 1 );*/
 
 define( 'ALIYUN_CDN_PATH', dirname( __FILE__ ) );
 require( ALIYUN_CDN_PATH . '/autoload.php' );
