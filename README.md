@@ -75,4 +75,4 @@ v2.2 版本更新：
 [1]:	https://github.com/0xJacky/jacky-alicdn-helper/releases/latest
 
 [image-1]:	https://github.com/0xJacky/aliyun-cdn-helper/raw/master/assets/screenshot-1.png
-[image-2]:  https://dl.jackyu.cn/my_alipay.png?x-oss-process=image/resize,h_360
+[image-2]:  https://github.com/0xJacky/aliyun-cdn-helper/raw/master/assets/my_alipay.png
