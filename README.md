@@ -4,7 +4,7 @@
 
 ### 当前版本
 
-v2.1
+v2.2
 
 ![image][image-1]
 
@@ -19,7 +19,7 @@ v2.1
 
 ### 环境
 
-WordPress 4.8+ （低版本暂未测试，理论上是支持的）
+WordPress 4.9.5 （低版本暂未测试，理论上是支持的）
 
 PHP 5.3 ~ 7.1 （取决于阿里云 SDK）
 
@@ -51,6 +51,14 @@ PHP 5.3 ~ 7.1 （取决于阿里云 SDK）
 
 由于阿里云的 SDK 不支持批量刷新，所以现在使用循环提交的方式，主题内文件较多的话等待时间可能稍微长一点，具体使用 URL 配额由文件数量决定。
 
+v2.2 版本更新：
+
+1. 修复了一些小问题
+
+2. 阿里云 SDK 已支持批量刷新，但貌似会提示文件名称格式不正确的问题，所以仍使用循环提交的方式，并做了一些小调整，只提交后缀为 `css, js` 的文件（下个版本会增加自定义后缀的功能），如果您有好的方案，欢迎提交 Pull Request
+
+3. 为了提交到 WordPress 已将插件名更名为 `Jacky AliCDN Helper`。（求 dalao 给它取个更好听的名字w）
+
 #### 刷新自定义 URL
 
 功能如题所示，对应阿里云 CDN 控制台的 URL 刷新，如果强行要输入目录的话不要忘记末尾的 `/`。
@@ -66,5 +74,5 @@ PHP 5.3 ~ 7.1 （取决于阿里云 SDK）
 
 [1]:	https://github.com/0xJacky/jacky-alicdn-helper/releases/latest
 
-[image-1]:	https://raw.githubusercontent.com/0xJacky/jacky-alicdn-helper/master/assets/screenshot-1.png
+[image-1]:	https://github.com/0xJacky/aliyun-cdn-helper/raw/master/assets/screenshot-1.png
 [image-2]:  https://dl.jackyu.cn/my_alipay.png?x-oss-process=image/resize,h_360
