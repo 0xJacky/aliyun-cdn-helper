@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify

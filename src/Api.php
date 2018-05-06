@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -48,8 +48,9 @@ class Api {
 
 	public function aliyun_cdn_helper() {
 		$module      = isset( $_REQUEST['module'] ) ? $_REQUEST['module'] : '';
-		$style       = get_stylesheet_directory_uri() . "/style.css";
-		$stylesheet  = str_replace( ABSPATH, site_url() . '/', get_stylesheet_directory() );
+		$theme_url = get_stylesheet_directory_uri();
+		$style       = $theme_url . "/style.css";
+		$stylesheet  = $theme_url . "/";
 		$object_type = '';
 		switch ( $module ) {
 			case 1:
@@ -124,29 +125,27 @@ class Api {
 	}
 
 	private function handle( $urls, $type, $object_type = '' ) {
-		if ( self::$Quota->UrlRemain >= 0 ) {
-			$requestId = '';
-			$desc      = '';
+		$requestId = '';
+		$desc      = '';
 
-			if ( $type == 'refresh' ) {
-				$requestId = 'RefreshTaskId';
-				$desc      = __( 'Refresh', 'aliyun-cdn' );
-			} else {
-				$requestId = 'RequestId';
-				$desc      = __( 'Push', 'aliyun-cdn' );
-			}
+		if ( $type == 'refresh' ) {
+			$requestId = 'RefreshTaskId';
+			$qa = 'UrlRemain';
+			$desc      = __( 'Refresh', 'aliyun-cdn' );
+		} else {
+			$requestId = 'RequestId';
+			$desc      = __( 'Push', 'aliyun-cdn' );
+			$qa = 'PreloadRemain';
+		}
+
+		if ( self::$Quota->$qa > 0 ) {
 
 			if ( is_array( $urls ) ) {
-				foreach ( $urls as $url ) {
+				foreach ( $urls as $url)
+				{
 					self::$$type->setObjectPath( $url );
 					$result = self::$client->getAcsResponse( self::$$type );
-					if ( $result->$requestId ) {
-						$success = 1;
-						continue;
-					} else {
-						$success = 0;
-						break;
-					}
+					$success = $result->$requestId ? 1 : 0;
 				}
 			} else {
 				self::$$type->setObjectPath( $urls );
@@ -158,8 +157,6 @@ class Api {
 			if ( $success ) {
 				$this->response( 1, $desc . __( ' success!', 'aliyun-cdn' ) );
 
-			} else {
-				$this->response( 2, $desc . sprintf( __( " failed!\nError message: %s", "aliyun-cdn" ), $result["Message"] ) );
 			}
 		} else {
 			$this->response( 3, __( 'Today\'s refresh (push) has reached the maximum number of operations!', 'aliyun-cdn' ) );
@@ -169,7 +166,7 @@ class Api {
 	public function get_quota() {
 		try {
 			$Quota = self::$Quota;
-			$html  = sprintf( __( 'Notice: You can submit a maximum daily refresh-type request amount of URL: %s, amount of directory: %s. <br />Today you can refresh URL: %s times, directory: %s times.', 'aliyun-cdn' ), $Quota->UrlQuota, $Quota->DirQuota, $Quota->UrlRemain, $Quota->UrlQuota );
+			$html  = sprintf( __( 'Notice: You can submit a maximum daily refresh-type request amount of URL: %s, amount of directory: %s, push-type request amount of URL: %s. <br />Today you can refresh URL: %s times, directory: %s times.<br />Today you can push URL: %s times.', 'aliyun-cdn' ), $Quota->UrlQuota, $Quota->DirQuota, $Quota->PreloadQuota, $Quota->UrlRemain, $Quota->DirRemain, $Quota->PreloadRemain );
 			$this->response( 1, $html );
 		} catch ( \ServerException $e ) {
 			$this->response( 2, $e->setErrorMessage() );

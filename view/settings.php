@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -48,12 +48,12 @@ $sk      = $options['sk'] ? __( 'You can\'t see me', $d ) : '';
             <ol><input type="radio" name="refresh_type"
                        value="3" <?php echo checked( 3, $type, false ); ?>/><?php _e( 'The whole site (Request object type: Directory)', $d ); ?>
             </ol>
+            <a class="button" onclick="task(1)"><?php _e( 'Refresh', $d ) ?></a>
         </fieldset>
         <fieldset>
             <h2><?php _e( 'Push object cache', $d ); ?></h2>
             <p><?php _e( 'Takes content from the origin site and actively preprocess it to the L2 Cache node. Upon first access, users can directly cache hit to relieve pressure on the origin site.', $d ); ?></p>
-            <p><?php _e( 'If you are using Alibaba Cloud CDN and this plugin for the first time, you can click on the following button, 
-            the plugin will automatically search the current theme directory of the static resource file, and submitted the URLs to the interface.', $d ); ?></p>
+            <p><?php _e( 'If you are using Alibaba Cloud CDN and this plugin for the first time, you can click on the following button, the plugin will automatically search the current theme directory of the static resource file, and submitted the URLs to the interface.', $d ); ?></p>
             <a class="button" onclick="task(2)"><?php _e( 'Push', $d ) ?></a>
         </fieldset>
         <fieldset>

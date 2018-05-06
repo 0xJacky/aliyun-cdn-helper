@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,7 +28,7 @@ class Init {
 			add_action( 'admin_footer', array( $this, 'button_javascript' ) );
 			add_action( 'admin_footer', array( $this, 'load_resources' ) );
 		}
-		if ( ! ( Config::$accessKeyId && Config::$accessKeySecret || ( isset( $_GET['page'] ) && $_GET['page'] == 'aliyun-cdn-helper' ) ) ) {
+		if ( ! ( Config::$accessKeyId && Config::$accessKeySecret || ( isset( $_GET['page'] ) && $_GET['page'] == 'jacky-alicdn-helper' ) ) ) {
 			add_action( 'admin_notices', array( $this, 'warning' ) );
 		}
 	}
@@ -85,8 +85,8 @@ class Init {
 
 	/* 加载提示框 css & js */
 	public static function load_resources() {
-		wp_register_style( 'toastrCSS', plugins_url( '../resources/toastr.min.css', __FILE__ ) );
-		wp_register_script( 'toastrJS', plugins_url( '../resources/toastr.min.js', __FILE__ ) );
+		wp_register_style( 'toastrCSS', plugins_url( '../assets/toastr.min.css', __FILE__ ) );
+		wp_register_script( 'toastrJS', plugins_url( '../assets/toastr.min.js', __FILE__ ) );
 		wp_enqueue_style( 'toastrCSS' );
 		wp_enqueue_script( 'toastrJS' );
 	}

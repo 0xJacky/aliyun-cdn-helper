@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -35,7 +35,7 @@ class Config {
 
 	public static $options = '';
 	public static $plugin_path = 'aliyun-cdn';
-	public static $settings_url = "options-general.php?page=aliyun-cdn-helper";
+	public static $settings_url = "options-general.php?page=jacky-alicdn-helper";
 
 	public static function init( $plugin_path = "" ) {
 		$plugin_path && self::$plugin_path = plugin_basename( $plugin_path );

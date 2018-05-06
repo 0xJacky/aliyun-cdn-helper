@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Aliyun CDN Helper
+ * Plugin Name: Jacky AliCDN Helper
  * Plugin URI: https://github.com/0xJacky/aliyun_cdn_helper
  * Description: 阿里云 CDN 辅助工具。Aliyun CDN auxiliary tool for wordpress.
  * Version: 2.1
@@ -10,7 +10,7 @@
  */
 
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -27,7 +27,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
-
 /*ini_set( 'display_errors', 1 );
 ini_set( 'display_startup_errors', 1 );
 error_reporting( - 1 );*/

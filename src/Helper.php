@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -39,7 +39,9 @@ class Helper {
 			$dp->close();
 		}
 		if ( is_file( $path ) ) {
-			if ( self::get_extension( $path ) !== 'php' ) {
+			$ext = self::get_extension( $path );
+			$include = array('css', 'js');
+			if ( in_array( $ext, $include ) ) {
 				/* 将绝对路径替换为 URL 形式 */
 				$path   = str_replace( ABSPATH, site_url() . '/', $path );
 				$list[] = $path;

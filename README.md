@@ -10,7 +10,7 @@ v2.1
 
 ### 插件特色
 
-1. 方便刷新缓存
+1. 一键刷新缓存
 2. 配置简单
 3. 设置页面可以显示当日的刷新剩余量
 4. 中英文支持
@@ -64,7 +64,7 @@ PHP 5.3 ~ 7.1 （取决于阿里云 SDK）
 ![image][image-2]
 
 
-[1]:	https://github.com/0xJacky/aliyun-cdn-helper/releases/latest
+[1]:	https://github.com/0xJacky/jacky-alicdn-helper/releases/latest
 
-[image-1]:	https://raw.githubusercontent.com/0xJacky/aliyun-cdn-helper/master/assets/screenshot-1.png
+[image-1]:	https://raw.githubusercontent.com/0xJacky/jacky-alicdn-helper/master/assets/screenshot-1.png
 [image-2]:  https://dl.jackyu.cn/my_alipay.png?x-oss-process=image/resize,h_360

@@ -33,7 +33,7 @@ class Settings {
 	public function add_admin_menu() {
 		add_options_page( __( 'Alibaba Cloud CDN', 'aliyun-cdn' ),
 			__( 'Alibaba Cloud CDN', 'aliyun-cdn' ), 'administrator',
-			'aliyun-cdn-helper',
+			'jacky-alicdn-helper',
 			array( $this, 'settings_page' ) );
 	}
 

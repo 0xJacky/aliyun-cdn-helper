@@ -1,9 +1,9 @@
-=== Aliyun CDN Helper ===
+=== Jacky AliCDN Helper ===
 Contributors: 0xJacky
-Donate link: https://jackyu.cn/projects/aliyun-cdn-helper
+Donate link: https://jackyu.cn/projects/jacky-alicdn-helper
 Tags: aliyun, cdn
 Requires at least: 4.6
-Tested up to: 4.8.1
+Tested up to: 4.8.2
 Stable tag: 2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -24,7 +24,7 @@ This plugin use `aliyun-openapi-php-sdk` as the SDK, all the request will only s
 
 
 ### 插件特色
-1. 方便刷新缓存
+1. 一键刷新缓存
 2. 配置简单
 3. 设置页面可以显示当日的刷新剩余量
 4. 中英文支持
@@ -32,7 +32,7 @@ This plugin use `aliyun-openapi-php-sdk` as the SDK, all the request will only s
 6. 支持批量预热文件
 
 ### The features of this plugin
-1. Easy to refresh the CDN cache.
+1. One click to refresh the CDN cache.
 2. Easy to configure.
 3. Setting page can display the refresh amount of the day.
 4. Supports Chinese and English.
@@ -72,7 +72,8 @@ This plugin use `aliyun-openapi-php-sdk` as the SDK, all the request will only s
 
 == Screenshots ==
 
-1. `screenshot.png`
+1. `screenshot-1.png`
+2. `screenshot-2.png`
 
 == Changelog ==
 
