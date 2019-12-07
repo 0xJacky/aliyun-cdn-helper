@@ -107,7 +107,7 @@ class Api {
 				break;
 		}
 		try {
-			$result = self::build_request(
+			self::build_request(
 				'RefreshObjectCaches',
 				[
 					'ObjectPath' => $url,
@@ -141,6 +141,9 @@ class Api {
 				'message' => sprintf( __( 'You can refresh %s files and %s directories today.', Config::identifier ),
 					$result['UrlRemain'], $result['DirRemain'] )
 			];
+
+			return $data;
+
 		} catch ( ClientException $e ) {
 			return [
 				'status'  => 500,
@@ -152,7 +155,5 @@ class Api {
 				'message' => sprintf( __( 'Fail to get quota, error message: %s', Config::identifier ), $e->getErrorMessage() )
 			];
 		}
-
-		return $data;
 	}
 }
