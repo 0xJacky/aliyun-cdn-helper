@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Aliyun CDN Helper
+ * Plugin Name: Jacky AliCDN Helper
  * Plugin URI: https://github.com/0xJacky/aliyun_cdn_helper
  * Description: 阿里云 CDN 辅助工具。Aliyun CDN auxiliary tool for wordpress.
  * Version: 2.1
@@ -10,7 +10,7 @@
  */
 
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -27,19 +27,25 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
-
-namespace CDN\WP;
+/*ini_set( 'display_errors', 1 );
+ini_set( 'display_startup_errors', 1 );
+error_reporting( - 1 );*/
 
 define( 'ALIYUN_CDN_PATH', dirname( __FILE__ ) );
 require( ALIYUN_CDN_PATH . '/autoload.php' );
 
+use CDN\WP\Config;
 
 Config::init( ALIYUN_CDN_PATH );
-load_plugin_textdomain( Config::identifier, false, Config::$plugin_path . '/languages' );
+load_plugin_textdomain( 'aliyun-cdn', false, Config::$plugin_path . '/languages' );
 
-new Api;
-
-if ( is_admin() ) {
-	new Init;
-	new Settings;
+try {
+	new CDN\WP\Init();
+	new CDN\WP\Settings();
+	new CDN\WP\Api();
+} catch ( ServerException $e ) {
+	//echo $e->getMessage();
+	register_activation_hook( __FILE__, function () {
+		add_option( 'alicdn_options', Config::$originOptions, '', 'yes' ); //autoload
+	} );
 }

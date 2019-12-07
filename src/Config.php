@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -23,40 +23,25 @@ defined( 'ALIYUN_CDN_PATH' ) OR exit();
 
 class Config {
 	/* 配置 */
-	const identifier = 'aliyun-cdn-helper';
-	const option_name = 'alicdn_options';
-
 	public static $accessKeyId = '';
 	public static $accessKeySecret = '';
-	public static $refresh_type = 1;
-	public static $custom_urls = '';
 
-	private static $originOptions = [
+	public static $originOptions = array(
 		'ak'           => '',
 		'sk'           => '',
 		'refresh_type' => 1,
 		'custom_urls'  => ''
-	];
+	);
 
-	public static $options = [];
-	public static $plugin_path = self::identifier;
-	public static $settings_url = "options-general.php?page=" . self::identifier;
+	public static $options = '';
+	public static $plugin_path = 'aliyun-cdn';
+	public static $settings_url = "options-general.php?page=jacky-alicdn-helper";
 
 	public static function init( $plugin_path = "" ) {
 		$plugin_path && self::$plugin_path = plugin_basename( $plugin_path );
-		self::$options         = array_merge( self::$originOptions, get_option( self::option_name, [] ) );
-		self::update();
-	}
-
-	public static function is_configured() {
-		return self::$accessKeyId && self::$accessKeySecret;
-	}
-
-	public static function update() {
+		self::$options         = array_merge( self::$originOptions, get_option( 'alicdn_options', array() ) );
 		self::$accessKeyId     = self::$options['ak'];
 		self::$accessKeySecret = self::$options['sk'];
-		self::$refresh_type    = self::$options['refresh_type'];
-		self::$custom_urls     = self::$options['custom_urls'];
 	}
 
 }

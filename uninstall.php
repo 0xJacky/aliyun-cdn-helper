@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliyun CDN Helper
+ * Jacky AliCDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -18,9 +18,5 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 defined( 'WP_UNINSTALL_PLUGIN' ) OR exit(); // if uninstall.php is not called by WordPress, exit.
-define( 'ALIYUN_CDN_PATH', dirname( __FILE__ ) );
-require( ALIYUN_CDN_PATH . '/autoload.php' );
 
-use CDN\WP\Config;
-
-delete_option( Config::option_name );
+delete_option('alicdn_options');
