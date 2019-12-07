@@ -1,6 +1,6 @@
 <?php
 /**
- * Jacky AliCDN Helper
+ * Aliyun CDN Helper
  * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -23,64 +23,26 @@ defined( 'ALIYUN_CDN_PATH' ) OR exit();
 
 class Init {
 	function __construct() {
-		if ( is_admin() ) {
-			add_action( 'admin_bar_menu', array( $this, 'refresh_button' ), 90 );
-			add_action( 'admin_footer', array( $this, 'button_javascript' ) );
-			add_action( 'admin_footer', array( $this, 'load_resources' ) );
-		}
-		if ( ! ( Config::$accessKeyId && Config::$accessKeySecret || ( isset( $_GET['page'] ) && $_GET['page'] == 'jacky-alicdn-helper' ) ) ) {
-			add_action( 'admin_notices', array( $this, 'warning' ) );
-		}
+		add_action( 'admin_bar_menu', [ $this, 'refresh_button' ], 90 );
+		add_action( 'admin_footer', [ $this, 'button_javascript' ] );
+		add_action( 'admin_footer', [ $this, 'load_resources' ] );
 	}
 
 	/* 后台状态栏添加按钮 */
 	public static function refresh_button() {
 		global $wp_admin_bar;
 		$wp_admin_bar->add_menu( array(
-				'id'    => 'alicdn_shortcut',
-				'title' => __( 'Refresh CDN', 'aliyun-cdn' ),
+				'id'    => 'aliyun_cdn_shortcut',
+				'title' => __( 'Refresh CDN', Config::identifier ),
 				'href'  => '#',
-				'meta'  => array( 'onclick' => 'refresh_alicdn()' )
+				'meta'  => [ 'onclick' => 'do_refresh()' ]
 			)
 		);
 	}
 
 	/* Ajax 请求 */
 	public static function button_javascript() {
-		echo "<script type=\"text/javascript\">
-                function refresh_alicdn() {
-                    jQuery.ajax({
-                        type: 'POST',
-                        url: \"" . admin_url( 'admin-ajax.php' ) . "\",
-                        data: {
-                            action: 'aliyun_cdn_helper',
-                            module: 1
-                        },
-                       	beforeSend: function() {
-                       	  	toastr.info( '" . __( 'Refresh task is being submitted, please wait ...', 'aliyun-cdn' ) . "' );
-                       	  	jQuery('alicdn_shortcut').attr({ disabled: \"disabled\" });
-                       	},
-                        success: function(data) {
-                        	toastr.clear();
-                        	jQuery('alicdn_shortcut').removeAttr(\"disabled\");
-                        	if (data == 0) {
-                        		toastr.error('" . __( 'Error：Please check whether the Access Key ID and Access key Secret are entered correctly.', 'aliyun-cdn' ) . "');
-                        	}
-                            switch( data.status ) {
-                                case 1:
-                                    toastr.success( data.message );
-                                    break;
-                                case 2:
-                                    toastr.error( data.message );
-                                    break;
-                                case 3:
-                                    toastr.warning( data.message );
-                                    break;
-                            }
-                        }
-                    });
-                }
-              </script>";
+		require ALIYUN_CDN_PATH . '/view/button_javascript.php';
 	}
 
 	/* 加载提示框 css & js */
@@ -98,4 +60,5 @@ class Init {
 
 		echo sprintf( $html, Config::$settings_url );
 	}
+
 }

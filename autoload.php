@@ -13,6 +13,7 @@
  * @return void
  */
 defined( 'ALIYUN_CDN_PATH' ) OR exit();
+require( ALIYUN_CDN_PATH . '/vendor/autoload.php' );
 spl_autoload_register( function ( $class ) {
 	$auto_load_class = array(
 		'CDN\\WP\\' => '/src/'
@@ -28,4 +29,3 @@ spl_autoload_register( function ( $class ) {
 		}
 	}
 } );
-include ALIYUN_CDN_PATH . '/sdk/aliyun-php-sdk-core/Config.php';

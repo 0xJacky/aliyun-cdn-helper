@@ -1,6 +1,6 @@
-=== Jacky AliCDN Helper ===
+=== Aliyun CDN Helper ===
 Contributors: 0xJacky
-Donate link: https://jackyu.cn/projects/jacky-alicdn-helper
+Donate link: https://jackyu.cn/projects/aliyun-cdn-helper
 Tags: aliyun, cdn
 Requires at least: 4.6
 Tested up to: 4.8.2

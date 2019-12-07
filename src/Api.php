@@ -1,7 +1,7 @@
 <?php
 /**
- * Jacky AliCDN Helper
- * Copyright 2017 0xJacky (email : jacky-943572677@qq.com)
+ * Aliyun CDN Helper
+ * Copyright 2017 - 2020 0xJacky (email : jacky-943572677@qq.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,176 +18,141 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 namespace CDN\WP;
-defined( 'ALIYUN_CDN_PATH' ) OR exit();
+
+use WP_REST_Server;
+use AlibabaCloud\Client\AlibabaCloud;
+use AlibabaCloud\Client\Exception\ClientException;
+use AlibabaCloud\Client\Exception\ServerException;
 
 class Api {
-	private static $option;
-	public static $profile;
-	public static $client;
-	private static $refresh;
-	private static $push;
-	private static $Quota;
+	const REST_NAMESPACE = 'aliyun-cdn-helper/v1';
+	const routes = [
+		'refresh' => [
+			'methods'  => WP_REST_Server::CREATABLE,
+			'callback' => 'do_refresh'
+		],
+		'quota'   => [
+			'methods'  => WP_REST_Server::READABLE,
+			'callback' => 'get_quota'
+		]
+	];
 
 	function __construct() {
-		self::init();
-		add_action( 'wp_ajax_aliyun_cdn_helper', array( $this, 'aliyun_cdn_helper' ) );
+		add_filter( 'rest_api_init', [ $this, 'init' ] );
 	}
 
-	private static function init() {
-		self::$option  = Config::$options;
-		self::$profile = \DefaultProfile::getProfile( 'cn-hangzhou', Config::$accessKeyId, Config::$accessKeySecret );
-		self::$client  = new \DefaultAcsClient( self::$profile );
-		self::$refresh = new \Cdn\Request\V20141111\RefreshObjectCachesRequest();
-		self::$push    = new \Cdn\Request\V20141111\PushObjectCacheRequest();
-		self::$Quota   = new \Cdn\Request\V20141111\DescribeRefreshQuotaRequest();
-		self::$Quota->setMethod( "GET" );
-		self::$Quota = self::$client->getAcsResponse( self::$Quota );
+	public function init() {
+		foreach ( self::routes as $url => $route ) {
+			register_rest_route( self::REST_NAMESPACE, $url, [
+				'methods'             => $route['methods'],
+				'permission_callback' => [ $this, 'privileged_permission_callback' ],
+				'callback'            => [ $this, $route['callback'] ]
+			] );
+		}
 	}
 
-	public function aliyun_cdn_helper() {
-		$module      = isset( $_REQUEST['module'] ) ? $_REQUEST['module'] : '';
+	public static function privileged_permission_callback() {
+		return current_user_can( 'level_10' );
+	}
+
+	public static function build_request( $action, $query = [] ) {
+		AlibabaCloud::accessKeyClient( Config::$accessKeyId, Config::$accessKeySecret )
+		            ->regionId( 'cn-hangzhou' )
+		            ->asDefaultClient();
+
+		$query = array_merge( [ 'RegionId' => "cn-hangzhou" ], $query );
+
+		return AlibabaCloud::rpc()
+		                   ->product( 'Cdn' )
+		                   ->scheme( 'https' ) // https | http
+		                   ->version( '2018-05-10' )
+		                   ->action( $action )
+		                   ->method( 'POST' )
+		                   ->host( 'cdn.aliyuncs.com' )
+		                   ->options( [
+			                   'query' => $query,
+		                   ] )
+		                   ->request()->toArray();
+	}
+
+	public static function do_refresh() {
+		if ( ! Config::is_configured() ) {
+			return [
+				'status'  => 406,
+				'message' => __( 'Please check whether the Access Key ID and Access key Secret are entered correctly.', Config::identifier )
+			];
+		}
+		$type      = $_REQUEST['type'] ?? Config::$refresh_type ?? 1;
 		$theme_url = get_stylesheet_directory_uri();
-		$style       = $theme_url . "/style.css";
-		$stylesheet  = $theme_url . "/";
-		$object_type = '';
-		switch ( $module ) {
+		$obj_type  = 'Directory';
+		switch ( $type ) {
+			default:
 			case 1:
-				switch ( self::$option['refresh_type'] ) {
-					default:
-					case 1:
-						// 当前主题的样式表
-						$urls = $style;
-						break;
-					case 2:
-						// 当前主题
-						$urls        = $stylesheet;
-						$object_type = 'Directory';
-						break;
-					case 3:
-						// 全站
-						$urls        = site_url() . '/';
-						$object_type = 'Directory';
-						break;
-				}
-				$custom_url = self::$option['custom_urls'];
-				if ( $custom_url ) {
-					$urls       = array( $urls );
-					$custom_url = explode( "\n", $custom_url );
-					$urls       = array_merge( $urls, $custom_url );
-				}
-				$this->do_refresh( $urls, $object_type );
-				exit();
+				$url      = $theme_url . '/style.css';
+				$obj_type = 'File';
+				$msg      = __( 'Refresh the style.css and custom urls success!', Config::identifier );
 				break;
 			case 2:
-				$urls = Helper::get_file_list( get_stylesheet_directory() );
-				$this->do_push( $urls );
-				exit();
+				$url = $theme_url . '/';
+				$msg = __( 'Refresh the theme url and custom urls success!', Config::identifier );
 				break;
 			case 3:
-				$custom_url = self::$option['custom_urls'];
-				$custom_url = explode( "\n", $custom_url );
-				$this->do_refresh( $custom_url );
-				exit();
+				$url = site_url() . '/';
+				$msg = __( 'Refresh the site url and custom urls success!', Config::identifier );
 				break;
 			case 5:
-				$this->get_quota();
-				exit();
+				$url = Config::$custom_urls;
+				$msg = __( 'Refresh custom urls success!', Config::identifier );
 				break;
 		}
-	}
-
-	/**
-	 * 处理刷新
-	 *
-	 * @param $urls
-	 */
-	public function do_refresh( $urls, $object_type = '' ) {
 		try {
-			$this->handle( $urls, 'refresh', $object_type );
-		} catch ( \ServerException $e ) {
-			$this->response( 2, sprintf( __( "Fail to refresh!\nError message: %s", "aliyun-cdn" ), $e->getErrorMessage() ) );
+			$result = self::build_request(
+				'RefreshObjectCaches',
+				[
+					'ObjectPath' => $url,
+					'ObjectType' => $obj_type
+				] );
+
+			return [
+				'status'  => 200,
+				'message' => $msg
+			];
+		} catch ( ClientException $e ) {
+			return [
+				'status'  => 500,
+				'message' => sprintf( __( 'Fail to refresh, error message: %s', Config::identifier ), $e->getErrorMessage() )
+			];
+		} catch ( ServerException $e ) {
+			return [
+				'status'  => 500,
+				'message' => sprintf( __( 'Fail to refresh, error message: %s', Config::identifier ), $e->getErrorMessage() )
+			];
 		}
+
 	}
 
-	/**
-	 * 处理预热
-	 *
-	 * @param $urls
-	 */
-	public function do_push( $urls ) {
+	public static function get_quota() {
 		try {
-			$this->handle( $urls, 'push' );
-		} catch ( \ServerException $e ) {
-			$this->response( 2, sprintf( __( "Fail to push!\nError message: %s", "aliyun-cdn" ), $e->getErrorMessage() ) );
-		}
-	}
+			$result = self::build_request( 'DescribeRefreshQuota' );
 
-	private function handle( $urls, $type, $object_type = '' ) {
-		$requestId = '';
-		$desc      = '';
-
-		if ( $type == 'refresh' ) {
-			$requestId = 'RefreshTaskId';
-			$qa = 'UrlRemain';
-			$desc      = __( 'Refresh', 'aliyun-cdn' );
-		} else {
-			$requestId = 'RequestId';
-			$desc      = __( 'Push', 'aliyun-cdn' );
-			$qa = 'PreloadRemain';
-		}
-
-		if ( self::$Quota->$qa > 0 ) {
-
-			if ( is_array( $urls ) ) {
-				foreach ( $urls as $url)
-				{
-					self::$$type->setObjectPath( $url );
-					$result = self::$client->getAcsResponse( self::$$type );
-					$success = $result->$requestId ? 1 : 0;
-				}
-			} else {
-				self::$$type->setObjectPath( $urls );
-				$object_type && self::$$type->setObjectType( 'Directory' );
-				$result  = self::$client->getAcsResponse( self::$$type );
-				$success = $result->$requestId ? 1 : 0;
-			}
-
-			if ( $success ) {
-				$this->response( 1, $desc . __( ' success!', 'aliyun-cdn' ) );
-
-			}
-		} else {
-			$this->response( 3, __( 'Today\'s refresh (push) has reached the maximum number of operations!', 'aliyun-cdn' ) );
-		}
-	}
-
-	public function get_quota() {
-		try {
-			$Quota = self::$Quota;
-			$html  = sprintf( __( 'Notice: You can submit a maximum daily refresh-type request amount of URL: %s, amount of directory: %s, push-type request amount of URL: %s. <br />Today you can refresh URL: %s times, directory: %s times.<br />Today you can push URL: %s times.', 'aliyun-cdn' ), $Quota->UrlQuota, $Quota->DirQuota, $Quota->PreloadQuota, $Quota->UrlRemain, $Quota->DirRemain, $Quota->PreloadRemain );
-			$this->response( 1, $html );
-		} catch ( \ServerException $e ) {
-			$this->response( 2, $e->setErrorMessage() );
-			$this->response( 2, $e->setErrorMessage() );
+			$data = [
+				'status'  => 200,
+				'message' => sprintf( __( 'You can refresh %s files and %s directories today.', Config::identifier ),
+					$result['UrlRemain'], $result['DirRemain'] )
+			];
+		} catch ( ClientException $e ) {
+			return [
+				'status'  => 500,
+				'message' => sprintf( __( 'Fail to get quota, error message: %s', Config::identifier ), $e->getErrorMessage() )
+			];
+		} catch ( ServerException $e ) {
+			return [
+				'status'  => 500,
+				'message' => sprintf( __( 'Fail to get quota, error message: %s', Config::identifier ), $e->getErrorMessage() )
+			];
 		}
 
+		return $data;
 	}
-
-	/**
-	 * 响应请求
-	 *
-	 * @param $status
-	 * @param $message
-	 */
-	private function response( $status, $message ) {
-		header( "Content-Type: application/json" );
-		$array = array(
-			'status'  => $status,
-			'message' => $message
-		);
-		echo json_encode( $array );
-	}
-
 }
