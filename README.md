@@ -57,7 +57,7 @@ v2.2 版本更新：
 
 2. 阿里云 SDK 已支持批量刷新，但貌似会提示文件名称格式不正确的问题，所以仍使用循环提交的方式，并做了一些小调整，只提交后缀为 `css, js` 的文件（下个版本会增加自定义后缀的功能），如果您有好的方案，欢迎提交 Pull Request
 
-3. 为了提交到 WordPress 已将插件名更名为 `Jacky AliCDN Helper`。（求 dalao 给它取个更好听的名字w）
+3. 为了提交到 WordPress 已将插件名更名为 `Aliyun CDN Helper`。（求 dalao 给它取个更好听的名字w）
 
 #### 刷新自定义 URL
 
@@ -72,7 +72,7 @@ v2.2 版本更新：
 ![image][image-2]
 
 
-[1]:	https://github.com/0xJacky/jacky-alicdn-helper/releases/latest
+[1]:	https://github.com/0xJacky/aliyun-cdn-helper/releases/latest
 
 [image-1]:	https://github.com/0xJacky/aliyun-cdn-helper/raw/master/assets/screenshot-1.png
 [image-2]:  https://github.com/0xJacky/aliyun-cdn-helper/raw/master/assets/my_alipay.png
