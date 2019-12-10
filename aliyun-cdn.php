@@ -3,7 +3,7 @@
  * Plugin Name: Aliyun CDN Helper
  * Plugin URI: https://github.com/0xJacky/aliyun_cdn_helper
  * Description: 阿里云 CDN 辅助工具。Aliyun CDN auxiliary tool for wordpress.
- * Version: 2.1
+ * Version: 2.5
  * Author: 0xJacky
  * Author URI: https://jackyu.cn/
  * License: GPL2
