@@ -15,3 +15,5 @@ before_script:
   - travis_retry composer update --prefer-source --no-interaction --dev
 
 script: phpunit
+
+# Added comment - 
